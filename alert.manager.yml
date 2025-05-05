@@ -1,0 +1,12 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: 'email-alert'
+
+receivers:
+  - name: 'email-alert'
+    email_configs:
+      - to: 'voce@exemplo.com'
+        from: 'alertmanager@seu-dominio.com'
+        smarthost: 'smtp.seu-servidor:587'

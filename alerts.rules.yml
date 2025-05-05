@@ -1,0 +1,11 @@
+groups:
+  - name: app_alerts
+    rules:
+      - alert: HighErrorRate
+        expr: rate(http_requests_total{status_code=~"5.."}[2m]) > 0.05
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Alta taxa de erros 5xx"
+          description: "Mais de 5% de respostas 5xx nos últimos 2 minutos"
